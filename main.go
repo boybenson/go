@@ -1,7 +1,7 @@
 package main
 
 import (
-	"net/http"
+	"example/go/routes"
 
 	"github.com/gin-gonic/gin"
 )
@@ -9,12 +9,8 @@ import (
 func main(){
 	router := gin.Default()
 
-	router.GET("/", func(ctx *gin.Context) {
-		ctx.IndentedJSON(http.StatusOK, gin.H{
-			"Message":"Hello world",
-		})
-	})
-	
+	routes.RegisterRoutes(router)
+
 	router.Run()
 }
 
